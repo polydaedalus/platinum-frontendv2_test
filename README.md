@@ -1,3 +1,3 @@
-# PolyPlatin Frontend
+# Platinum Finance
 
-This project contains the main features of the PolyPlatin application.
+This project contains the main features of the Platinum Finance application.

@@ -70,7 +70,7 @@ const config: MenuEntry[] = [
       {
         label: 'Docs',
         href: 'https://platinum-finance.gitbook.io/platinum-finance/',
-      },
+      }
     ],
   },
 ]

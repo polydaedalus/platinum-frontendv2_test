@@ -19,37 +19,34 @@ export interface FarmWithStakedValue extends Farm {
 
 const RainbowLight = keyframes`
   0% {
-    background-position: 0% 50%;
+    background-position: 50% 0%;
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 50% 100%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 50% 0%;
   }
 `
 
 const StyledCardAccent = styled.div`
-  background: linear-gradient(
-    45deg,
-    rgba(175,251,255,1) 0%, rgba(250,250,250,1) 16%, rgba(217,253,255,1) 34%, rgba(183,243,255,1) 51%, rgba(208,251,255,1) 69%, rgba(240,243,243,1) 82%, rgba(181,241,255,1) 100%);
-  background-size: 300% 300%;
+  background: ${({ theme }) => `linear-gradient(180deg, ${theme.colors.primaryBright}, ${theme.colors.secondary})`};
+  background-size: 400% 400%;
   animation: ${RainbowLight} 6s linear infinite;
-  border-radius: 16px;
-  filter: blur(6px);
+  border-radius: 32px;
   position: absolute;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
+  top: -1px;
+  right: -1px;
+  bottom: -3px;
+  left: -1px;
   z-index: -1;
 `
 
 const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
-  border-radius: 16px;
-  box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1), 0px 1px 1px rgba(25, 19, 38, 0.05);
+  border-radius: ${({ theme }) => theme.radii.card};
+  box-shadow: 0px 1px 4px rgba(25, 19, 38, 0.15);
   display: flex;
   flex-direction: column;
   justify-content: space-around;

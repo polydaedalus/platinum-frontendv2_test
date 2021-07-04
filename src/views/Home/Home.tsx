@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Heading, Text, BaseLayout } from 'platinumfinancev2'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
-import isDark from 'hooks/useTheme'
 import FarmStakingCard from './components/FarmStakingCard'
 import CakeStats from './components/CakeStats'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
@@ -45,7 +44,6 @@ const Cards = styled(BaseLayout)`
     }
   }
 `
-const darkwhite:string = isDark ? "/images/TitleBarDark.png" : "/images/TitleBarWhite.png";
 
 const Home: React.FC = () => {
   const TranslateString = useI18n()
@@ -53,7 +51,7 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        <img src= {darkwhite} alt="cake logo" width={950} height={225} />
+        <img src= "/images/TitleBar.png" alt="cake logo" width={950} height={225} />
         <Text>{TranslateString(578, "A DeFi protocol focused on achieving sustainability and adapting to our investor's needs.")}</Text>
       </Hero>
       <div>

@@ -30,9 +30,6 @@ z-index: 2;
     height: 100%;
     z-index: -1;
     opacity: 0.2;
-  background-image: url('/images/egg/2a.png');
-  background-repeat: no-repeat;
-  background-position: top right;
   min-height: 376px;
   }
 `

@@ -60,6 +60,10 @@ const CakeStats = () => {
           {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
         </Row>
         <Row>
+          <Text fontSize="14px">{TranslateString(541, 'Maximum Supply')}</Text>
+          <Text bold fontSize="14px">{TranslateString(543, '18,000')}</Text>
+        </Row>
+        <Row>
           <Text fontSize="14px">{TranslateString(540, 'New PLATIN/block')}</Text>
           <Text bold fontSize="14px">{platinPerBlock}</Text>
         </Row>

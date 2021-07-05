@@ -674,8 +674,20 @@
     },
     {
       "data": {
+        "stringId": 541,
+        "text": "Maximum Supply"
+      }
+    },
+    {
+      "data": {
         "stringId": 542,
         "text": "Farms & Staking"
+      }
+    },
+    {
+      "data": {
+        "stringId": 543,
+        "text": "18,000"
       }
     },
     {
@@ -765,7 +777,7 @@
     {
       "data": {
         "stringId": 578,
-        "text": "A DeFi protocol focused on achieving sustainability and adapting to our investor's needs."
+        "text": "A DeFi protocol focused on achieving sustainability and adapting to investors' needs."
       }
     },
     {

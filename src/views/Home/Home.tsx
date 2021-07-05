@@ -51,9 +51,9 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        <img src= "/images/TitleBar.png" alt="cake logo" width={950} height={225} />
-        <Heading as="h1" scale="xl" mb="24px" color="secondary">          
-          {TranslateString(578, "A DeFi protocol focused on achieving sustainability and adapting to our investor's needs.")}
+        <img src= "/images/TitleBar.png" alt="cake logo" width={760} height={180} />
+        <Heading as="h1" scale="lg" mt="24px" mb="24px" color="secondary">          
+          {TranslateString(578, "A DeFi protocol focused on achieving sustainability and adapting to investors' needs.")}
         </Heading>      
       </Hero>
       <div>

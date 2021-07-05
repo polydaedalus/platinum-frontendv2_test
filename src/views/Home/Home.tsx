@@ -52,8 +52,8 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <img src= "/images/TitleBar.png" alt="cake logo" width={950} height={225} />
-        <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-          <Text>{TranslateString(578, "A DeFi protocol focused on achieving sustainability and adapting to our investor's needs.")}</Text>
+        <Heading as="h1" scale="xl" mb="24px" color="secondary">          
+          {TranslateString(578, "A DeFi protocol focused on achieving sustainability and adapting to our investor's needs.")}
         </Heading>      
       </Hero>
       <div>

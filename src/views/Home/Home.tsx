@@ -58,7 +58,7 @@ const Home: React.FC = () => {
         </Heading>
         <Timer/>
         <Heading as="h1" scale="md" mt="24px" mb="24px" color="secondary">
-          {TranslateString(578, 'This timer is approximate, farming begins at ')}<a href="https://polygonscan.com/" rel="noreferrer" target="_blank">block #XXX</a>
+          {TranslateString(545, 'This timer is approximate, farming begins at ')}<a href="https://polygonscan.com/" rel="noreferrer" target="_blank">block #XXX</a>
         </Heading>  
       </Hero>
       <div>

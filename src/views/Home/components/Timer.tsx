@@ -9,7 +9,7 @@ const minuteSeconds = 60;
   const timerProps = {
     isPlaying: true,
     size: 120,
-    strokeWidth: 15,
+    strokeWidth: 10,
     trailColor: "#6a93ad"
   };
 
@@ -33,7 +33,7 @@ const minuteSeconds = 60;
 
 const TimerBox = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-family: 'IBM Plex Sans', sans-serif;;
   text-align: center;
   padding-top: 20px;

@@ -61,6 +61,7 @@ const Timer = () => {
           renderTime("days", getTimeDays(daysDuration - elapsedTime))
         }
       </CountdownCircleTimer>
+      <div className="divider" />
       <CountdownCircleTimer
         {...timerProps}
         colors="#6a93ad"
@@ -74,6 +75,7 @@ const Timer = () => {
           renderTime("hours", getTimeHours(daySeconds - elapsedTime))
         }
       </CountdownCircleTimer>
+      <div className="divider" />
       <CountdownCircleTimer
         {...timerProps}
         colors="#6a93ad"
@@ -87,6 +89,7 @@ const Timer = () => {
           renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
         }
       </CountdownCircleTimer>
+      <div className="divider" />
       <CountdownCircleTimer
         {...timerProps}
         colors="#6a93ad"

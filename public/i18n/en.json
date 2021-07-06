@@ -698,6 +698,12 @@
     },
     {
       "data": {
+        "stringId": 545,
+        "text": "This timer is approximate, farming begins at "
+      }
+    },
+    {
+      "data": {
         "stringId": 546,
         "text": "PLATIN in Wallet"
       }

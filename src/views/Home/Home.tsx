@@ -53,10 +53,13 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <img src= "/images/TitleBar.png" alt="cake logo" width={570} height={135} />
-        <Timer/>
         <Heading as="h1" scale="lg" mt="40px" mb="24px" color="secondary">          
           {TranslateString(578, "A DeFi protocol focused on achieving sustainability and adapting to investors' needs.")}
-        </Heading>      
+        </Heading>
+        <Timer/>
+        <Heading as="h1" scale="md" mt="24px" mb="24px" color="secondary">
+          {TranslateString(578, 'This timer is approximate, farming begins at ')}<a href="https://polygonscan.com/" rel="noreferrer" target="_blank">block #XXX</a>
+        </Heading>  
       </Hero>
       <div>
         <Cards>

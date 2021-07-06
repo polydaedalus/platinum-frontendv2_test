@@ -34,10 +34,10 @@ const minuteSeconds = 60;
 const TimerBox = styled.div`
   display: flex;
   justify-content: space-around;
-  font-family: sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;;
   text-align: center;
   padding-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: auto;
   `
 const Timer = () => {
 

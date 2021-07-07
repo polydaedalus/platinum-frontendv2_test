@@ -213,7 +213,7 @@
     {
       "data": {
         "stringId": 356,
-        "text": "View on Explorer"
+        "text": "View on PolygonScan"
       }
     },
     {
@@ -664,6 +664,12 @@
       "data": {
         "stringId": 538,
         "text": "Total Burned"
+      }
+    },
+    {
+      "data": {
+        "stringId": 539,
+        "text": "0.04"
       }
     },
     {

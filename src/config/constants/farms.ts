@@ -166,14 +166,14 @@ const farms: FarmConfig[] = [
     pid: 7,
     risk: 3,
     isTokenOnly: true,
-    lpSymbol: 'QUICK',
+    lpSymbol: 'AAVE',
     decimal: 18,
     lpAddresses: {
-      137: '0x1f1e4c845183ef6d50e9609f16f6f9cae43bc9cb'
+      137: '0x7c76b6b3fe14831a39c0fec908da5f17180df677'
     },
-    tokenSymbol: 'QUICK',
+    tokenSymbol: 'AAVE',
     tokenAddresses: {
-      137: '0x831753dd7087cac61ab5644b308642cc1c33dc13'
+      137: '0xd6df932a45c0f255f85145f286ea0b292b21c90b'
     },
     quoteTokenSymbol: QuoteToken.USDC,
     quoteTokenAdresses: contracts.usdc,
@@ -218,14 +218,14 @@ const farms: FarmConfig[] = [
     pid: 10,
     risk: 3,
     isTokenOnly: true,
-    lpSymbol: 'AAVE',
+    lpSymbol: 'QUICK',
     decimal: 18,
     lpAddresses: {
-      137: '0x7c76b6b3fe14831a39c0fec908da5f17180df677'
+      137: '0x1f1e4c845183ef6d50e9609f16f6f9cae43bc9cb'
     },
-    tokenSymbol: 'AAVE',
+    tokenSymbol: 'QUICK',
     tokenAddresses: {
-      137: '0xd6df932a45c0f255f85145f286ea0b292b21c90b'
+      137: '0x831753dd7087cac61ab5644b308642cc1c33dc13'
     },
     quoteTokenSymbol: QuoteToken.USDC,
     quoteTokenAdresses: contracts.usdc,

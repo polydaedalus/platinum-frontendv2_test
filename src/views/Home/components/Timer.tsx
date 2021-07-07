@@ -33,7 +33,7 @@ const minuteSeconds = 60;
 
 const TimerBox = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   font-family: 'IBM Plex Sans', sans-serif;;
   text-align: center;
   padding-top: 20px;
@@ -42,8 +42,8 @@ const TimerBox = styled.div`
 const Timer = () => {
 
 
-  const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
-  const endTime = 1622635192; // use UNIX timestamp in seconds
+  const stratTime = Date.now() / 1625658876; // use UNIX timestamp in seconds
+  const endTime = 1626088476; // use UNIX timestamp in seconds
 
   const remainingTime = endTime - stratTime;
   const days = Math.ceil(remainingTime / daySeconds);
@@ -61,7 +61,6 @@ const Timer = () => {
           renderTime("days", getTimeDays(daysDuration - elapsedTime))
         }
       </CountdownCircleTimer>
-      <div className="divider" />
       <CountdownCircleTimer
         {...timerProps}
         colors="#6a93ad"
@@ -75,7 +74,6 @@ const Timer = () => {
           renderTime("hours", getTimeHours(daySeconds - elapsedTime))
         }
       </CountdownCircleTimer>
-      <div className="divider" />
       <CountdownCircleTimer
         {...timerProps}
         colors="#6a93ad"
@@ -89,7 +87,6 @@ const Timer = () => {
           renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
         }
       </CountdownCircleTimer>
-      <div className="divider" />
       <CountdownCircleTimer
         {...timerProps}
         colors="#6a93ad"

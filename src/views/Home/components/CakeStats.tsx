@@ -65,7 +65,7 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New PLATIN/block')}</Text>
-          <Text bold fontSize="14px">{TranslateString(539, '0.04')}</Text>
+          <Text bold fontSize="14px">{TranslateString(539, '0.004')}</Text>
         </Row>
       </CardBody>
     </StyledCakeStats>

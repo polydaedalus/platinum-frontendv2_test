@@ -93,9 +93,6 @@ export const useTotalValue = (): BigNumber => {
       if (farm.quoteTokenSymbol === QuoteToken.WMATIC) {
         val = (bnbPrice.times(farm.lpTotalInQuoteToken));
       }
-      if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
-        val = (cakePrice.times(farm.lpTotalInQuoteToken));
-      }
       else {
         val = new BigNumber(farm.lpTotalInQuoteToken);
       }

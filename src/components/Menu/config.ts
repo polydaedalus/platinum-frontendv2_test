@@ -57,6 +57,14 @@ const config: MenuEntry[] = [
         label: 'PolyChart',
         href: 'https://app.polychart.io/explorer/polygon/0x8c79d1ccb5e5ea4df5e0ff14b59a305f2808ac93',
       },
+      {
+        label: 'DexGuru',
+        href: 'https://dex.guru/token/0x782eb3304f8b9add877f13a5ca321f72c4aa9804-polygon',
+      },
+      {
+        label: 'PooCoin',
+        href: 'https://polygon.poocoin.app/tokens/0x782eb3304f8b9add877f13a5ca321f72c4aa9804',
+      },
     ],
   },
   {

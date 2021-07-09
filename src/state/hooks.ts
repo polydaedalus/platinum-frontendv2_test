@@ -69,7 +69,7 @@ export const usePoolFromPid = (sousId): Pool => {
 // Prices
 
 export const usePriceBnbBusd = (): BigNumber => {
-  const pid = 3 // WMATIC-USDC LP
+  const pid = 1 // PLATIN-WMATIC LP
   const farm = useFarmFromPid(pid)
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
@@ -89,12 +89,14 @@ export const useTotalValue = (): BigNumber => {
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
-      let val
+      let val;
       if (farm.quoteTokenSymbol === QuoteToken.WMATIC) {
         val = (bnbPrice.times(farm.lpTotalInQuoteToken));
       }
-      else {
-        val = new BigNumber(farm.lpTotalInQuoteToken);
+      if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+        val = (cakePrice.times(farm.lpTotalInQuoteToken));
+      }else{
+        val = (farm.lpTotalInQuoteToken);
       }
       value = value.plus(val);
     }

@@ -56,9 +56,8 @@ const Home: React.FC = () => {
         <Heading as="h1" scale="lg" mt="40px" mb="24px" color="secondary">          
           {TranslateString(578, "A DeFi protocol focused on achieving sustainability and adapting to investors' needs.")}
         </Heading>
-        <Timer/>
         <Heading as="h1" scale="md" mt="10px" mb="24px" color="secondary">
-          {TranslateString(545, 'This timer is approximate, farming begins at ')}<a href="https://polygonscan.com/block/countdown/16805200" rel="noreferrer" target="_blank">block #16805200</a>
+          {TranslateString(545, 'Farming begins at ')}<a href="https://polygonscan.com/block/countdown/16805200" rel="noreferrer" target="_blank">block #16805200</a>
         </Heading>  
       </Hero>
       <div>

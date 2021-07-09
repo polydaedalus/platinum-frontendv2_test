@@ -25,12 +25,12 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       137: '0x8c79D1CcB5E5Ea4Df5e0FF14b59A305f2808ac93',
     },
-    tokenSymbol: 'PLATIN',
+    tokenSymbol: 'WMATIC',
     tokenAddresses: {
-      137: '0x782eb3304F8b9adD877F13a5cA321f72c4AA9804',
+      137: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
     },
-    quoteTokenSymbol: QuoteToken.WMATIC,
-    quoteTokenAdresses: contracts.wmatic,
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
   },
 
   {
@@ -41,12 +41,12 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       137: '0x1996ABaFb1ce1de7B5357eC9D281Bc378A0b8DEd',
     },
-    tokenSymbol: 'PLATIN',
+    tokenSymbol: 'WETH',
     tokenAddresses: {
       137: '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619',
     },
-    quoteTokenSymbol: QuoteToken.WETH,
-    quoteTokenAdresses: contracts.weth,
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
   },
 
   {

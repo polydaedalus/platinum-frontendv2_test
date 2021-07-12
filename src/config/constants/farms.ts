@@ -248,23 +248,23 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.usdc,
   },
 
-  {
-    pid: 12,
-    risk: 1,
-    isTokenOnly: true,
-    isCommunity: true,
-    lpSymbol: 'PolyDoge',
-    decimal: 18,
-    lpAddresses: {
-      137: '0x7b3E67E63906d8576466c2f48158A30be0a9e36c'
-    },
-    tokenSymbol: 'PolyDoge',
-    tokenAddresses: {
-      137: '0x8A953CfE442c5E8855cc6c61b1293FA648BAE472'
-    },
-    quoteTokenSymbol: QuoteToken.USDC,
-    quoteTokenAdresses: contracts.usdc,
-  },
+  //  {
+  //  pid: 12,
+  //  risk: 1,
+  //  isTokenOnly: true,
+  //  isCommunity: true,
+  //  lpSymbol: 'PolyDoge',
+  //  decimal: 18,
+  //  lpAddresses: {
+  //    137: '0x7b3E67E63906d8576466c2f48158A30be0a9e36c'
+  //  },
+  //  tokenSymbol: 'PolyDoge',
+  //  tokenAddresses: {
+  //    137: '0x8A953CfE442c5E8855cc6c61b1293FA648BAE472'
+  //  },
+  //  quoteTokenSymbol: QuoteToken.USDC,
+  //  quoteTokenAdresses: contracts.usdc,
+  //  },
 
 
 

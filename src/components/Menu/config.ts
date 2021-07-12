@@ -78,6 +78,10 @@ const config: MenuEntry[] = [
       {
         label: 'Docs',
         href: 'https://platinum-finance.gitbook.io/platinum-finance/',
+      },
+      {
+        label: 'Vfat.tools',
+        href: 'https://vfat.tools/polygon/platinumfinance/',
       }
     ],
   },

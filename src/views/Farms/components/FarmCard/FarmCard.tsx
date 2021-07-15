@@ -111,12 +111,30 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
   const lpLabel = farm.lpSymbol
   const earnLabel = 'PLATIN'
-  const farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
+  let farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
+  const formats = [
+    { value: 1e3, symbol: "K" } , 
+    { value: 1e6, symbol: "M" },
+    { value: 1e9, symbol: "B" },
+    { value: 1e12, symbol: "T" },
+  ];
+  let formatted = farmAPY;
+  formats.forEach(format => {
+    if(farm.apy.times(new BigNumber(100).toNumber()).gt(format.value)){
+      formatted = farm.apy && farm.apy.times(new BigNumber(100)).div(format.value).toNumber().toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+      const parts = formatted.match(/([\D]*)([\d.,]+)([\D]*)/)
+      formatted=`${parts[1]}${parts[2]} ${format.symbol}${parts[3]}`
+    }
+  });
 
-  const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk } = farm
+  farmAPY = formatted;
+  const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk, lpSymbol } = farm
 
   return (
     <FCard>
@@ -143,6 +161,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
                   tokenAddresses={tokenAddresses}
                   cakePrice={cakePrice}
                   apy={farm.apy}
+                  pid={farm.pid}
                 />
                 {farmAPY}%
               </>
@@ -160,7 +179,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
         <Text style={{ fontSize: '24px' }}>{TranslateString(10001, 'Deposit Fee')}:</Text>
         <Text bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>
       </Flex>
-      <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
+      <CardActionsContainer farm={farm} ethereum={ethereum} account={account} totalValue={totalValue} />
       <Divider />
       <ExpandableSectionButton
         onClick={() => setShowExpandableSection(!showExpandableSection)}
@@ -182,6 +201,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
           quoteTokenSymbol={quoteTokenSymbol}
           tokenAddresses={tokenAddresses}
           otherExchange={farm.otherExchange}
+          pid={farm.pid}
         />
       </ExpandingWrapper>
     </FCard>

@@ -26,6 +26,8 @@ export enum QuoteToken {
   'USDC' = 'USDC',
   'TWT' = 'TWT',
   'UST' = 'UST',
+  'USDT' = 'USDT',
+  'BTC' = 'BTC',
   'PLATIN' = 'PLATIN',
   'WMATIC' = 'WMATIC',
   'MATIC' = 'MATIC',
@@ -56,7 +58,6 @@ export interface FarmConfig {
   isCommunity?: boolean
   otherExchange?: string
   risk: number
-  decimal: number
   dual?: {
     rewardPerBlock: number
     earnLabel: string

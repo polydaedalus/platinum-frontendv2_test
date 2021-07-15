@@ -9,8 +9,8 @@ import useStake from '../../../../hooks/useStake'
 
 interface FarmCardActionsProps {
   earnings?: BigNumber
-  pid?: number
-  decimal?: number
+  pid?: number,
+  usdEarnings: BigNumber
 }
 
 const BalanceAndCompound = styled.div`
@@ -19,29 +19,34 @@ const BalanceAndCompound = styled.div`
   justify-content: space-between;
   flex-direction: column;
 `
-
-const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}) => {
+const Label = styled.div`
+  color: ${({ theme }) => theme.colors.textSubtle};
+  font-size: 12px;
+`
+const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, usdEarnings }) => {
   const TranslateString = useI18n()
   const [pendingTx, setPendingTx] = useState(false)
   const { onReward } = useHarvest(pid)
-  const { onStake } = useStake(pid, decimal)
+  const { onStake } = useStake(pid)
 
-  const rawEarningsBalance = getBalanceNumber(earnings, decimal)
+  const rawEarningsBalance = getBalanceNumber(earnings)
   const displayBalance = rawEarningsBalance.toLocaleString()
-
+ 
   return (
     <Flex mb='8px' justifyContent='space-between' alignItems='center'>
-      <Heading color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}</Heading>
+        
+      <Heading color={rawEarningsBalance === 0 ? 'textDisabled' : 'text'}>{displayBalance}<Label>~${(usdEarnings).toFixed(2)} USD</Label></Heading>
       <BalanceAndCompound>
-        {pid === 5 ?
+        {pid === 3 ?
+        // {false ?
           <Button
             disabled={rawEarningsBalance === 0 || pendingTx}
             size='sm'
-            variant='secondary'
+            variant='tertiary'
             marginBottom='15px'
             onClick={async () => {
               setPendingTx(true)
-              await onStake(rawEarningsBalance.toString())
+              await onStake(rawEarningsBalance.toString(), 18)
               setPendingTx(false)
             }}
           >
@@ -56,6 +61,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid, decimal}
             setPendingTx(false)
           }}
         >
+
           {TranslateString(999, 'Harvest')}
         </Button>
       </BalanceAndCompound>

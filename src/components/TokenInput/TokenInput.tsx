@@ -14,10 +14,14 @@ interface TokenInputProps extends InputProps {
 
 const TokenInput: React.FC<TokenInputProps> = ({ max, symbol, onChange, onSelectMax, value, depositFeeBP = 0 }) => {
   const TranslateString = useI18n()
+  const useValue = value
+  const useMax = max
+
   return (
     <StyledTokenInput>
       <StyledMaxText>
-        {max.toLocaleString()} {symbol} {TranslateString(526, 'Available')}
+        {useMax.toLocaleString()} {symbol} {TranslateString(526, 'Available')}
+       
       </StyledMaxText>
       <Input
         endAdornment={
@@ -33,17 +37,14 @@ const TokenInput: React.FC<TokenInputProps> = ({ max, symbol, onChange, onSelect
         }
         onChange={onChange}
         placeholder="0"
-        value={value}
+        value={useValue}
       />
-      {
-        depositFeeBP > 0 ?
-          <StyledMaxText>
-            {TranslateString(10001, 'Deposit Fee')}: {new BigNumber(value || 0).times(depositFeeBP/10000).toString()} {symbol}
-          </StyledMaxText>
-          :
-          null
-      }
-
+      {depositFeeBP > 0 ? (
+        <StyledMaxText>
+          {TranslateString(10001, 'Deposit Fee')}: {new BigNumber(useValue || 0).times(depositFeeBP / 10000).toString()}{' '}
+          {symbol}
+        </StyledMaxText>
+      ) : null}
     </StyledTokenInput>
   )
 }

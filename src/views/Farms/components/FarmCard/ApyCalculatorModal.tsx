@@ -15,6 +15,7 @@ interface ApyCalculatorModalProps {
   quoteTokenAdresses?: Address
   quoteTokenSymbol?: string
   tokenAddresses: Address
+  pid: number
 }
 
 const Grid = styled.div`
@@ -41,9 +42,11 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
   tokenAddresses,
   cakePrice,
   apy,
+  pid
+
 }) => {
   const TranslateString = useI18n()
-  const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses })
+  const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAdresses, quoteTokenSymbol, tokenAddresses})
   const farmApy = apy.times(new BigNumber(100)).toNumber()
   const oneThousandDollarsWorthOfCake = 1000 / cakePrice.toNumber()
 

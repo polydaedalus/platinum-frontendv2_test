@@ -10,18 +10,18 @@ import {
 import { unstake, sousUnstake, sousEmegencyUnstake } from 'utils/callHelpers'
 import { useMasterchef, useSousChef } from './useContract'
 
-const useUnstake = (pid: number, decimal: number) => {
+const useUnstake = (pid: number) => {
   const dispatch = useDispatch()
   const { account } = useWallet()
   const masterChefContract = useMasterchef()
 
   const handleUnstake = useCallback(
-    async (amount: string) => {
-      const txHash = await unstake(masterChefContract, pid, amount, account, decimal)
+    async (amount: string, decimals: number) => {
+      const txHash = await unstake(masterChefContract, pid, amount, account, decimals)
       dispatch(fetchFarmUserDataAsync(account))
       console.info(txHash)
     },
-    [account, dispatch, masterChefContract, pid, decimal],
+    [account, dispatch, masterChefContract, pid],
   )
 
   return { onUnstake: handleUnstake }
@@ -37,9 +37,9 @@ export const useSousUnstake = (sousId) => {
   const isOldSyrup = SYRUPIDS.includes(sousId)
 
   const handleUnstake = useCallback(
-    async (amount: string, decimal: number) => {
+    async (amount: string) => {
       if (sousId === 0) {
-        const txHash = await unstake(masterChefContract, 0, amount, account, decimal)
+        const txHash = await unstake(masterChefContract, 0, amount, account)
         console.info(txHash)
       } else if (isOldSyrup) {
         const txHash = await sousEmegencyUnstake(sousChefContract, amount, account)

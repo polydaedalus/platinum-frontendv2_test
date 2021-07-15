@@ -6,7 +6,6 @@ const farms: FarmConfig[] = [
     pid: 0,
     risk: 5,
     lpSymbol: 'PLATIN-USDC LP',
-    decimal: 18,
     lpAddresses: {
       137: '0x60BEFF3E9d3b4E8409471Ecc58e568EB153F1e00',
     },
@@ -21,7 +20,6 @@ const farms: FarmConfig[] = [
     pid: 1,
     risk: 5,
     lpSymbol: 'PLATIN-WMATIC LP',
-    decimal: 18,
     lpAddresses: {
       137: '0x8c79D1CcB5E5Ea4Df5e0FF14b59A305f2808ac93',
     },
@@ -37,7 +35,6 @@ const farms: FarmConfig[] = [
     pid: 2,
     risk: 5,
     lpSymbol: 'PLATIN-WETH LP',
-    decimal: 18,
     lpAddresses: {
       137: '0x1996ABaFb1ce1de7B5357eC9D281Bc378A0b8DEd',
     },
@@ -53,7 +50,6 @@ const farms: FarmConfig[] = [
     pid: 3,
     risk: 5,
     lpSymbol: 'WMATIC-USDC LP',
-    decimal: 18,
     lpAddresses: {
       137: '0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827',
     },
@@ -69,7 +65,6 @@ const farms: FarmConfig[] = [
     pid: 4,
     risk: 5,
     lpSymbol: 'WETH-USDC LP',
-    decimal: 18,
     lpAddresses: {
       137: '0x853ee4b2a13f8a742d64c8f088be7ba2131f670d',
     },
@@ -133,7 +128,6 @@ const farms: FarmConfig[] = [
     risk: 5,
     isTokenOnly: true,
     lpSymbol: 'PLATIN',
-    decimal: 18,
     lpAddresses: {
       137: '0x60BEFF3E9d3b4E8409471Ecc58e568EB153F1e00'
     },
@@ -150,7 +144,6 @@ const farms: FarmConfig[] = [
     risk: 3,
     isTokenOnly: true,
     lpSymbol: 'WMATIC',
-    decimal: 18,
     lpAddresses: {
       137: '0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827'
     },
@@ -167,7 +160,6 @@ const farms: FarmConfig[] = [
     risk: 3,
     isTokenOnly: true,
     lpSymbol: 'AAVE',
-    decimal: 18,
     lpAddresses: {
       137: '0x7c76b6b3fe14831a39c0fec908da5f17180df677'
     },
@@ -184,7 +176,6 @@ const farms: FarmConfig[] = [
     risk: 3,
     isTokenOnly: true,
     lpSymbol: 'WETH',
-    decimal: 18,
     lpAddresses: {
       137: '0x853ee4b2a13f8a742d64c8f088be7ba2131f670d'
     },
@@ -201,7 +192,6 @@ const farms: FarmConfig[] = [
     risk: 3,
     isTokenOnly: true,
     lpSymbol: 'WBTC',
-    decimal: 8,
     lpAddresses: {
       137: '0xf6a637525402643b0654a54bead2cb9a83c8b498'
     },
@@ -219,7 +209,6 @@ const farms: FarmConfig[] = [
     risk: 3,
     isTokenOnly: true,
     lpSymbol: 'QUICK',
-    decimal: 18,
     lpAddresses: {
       137: '0x1f1e4c845183ef6d50e9609f16f6f9cae43bc9cb'
     },
@@ -236,7 +225,6 @@ const farms: FarmConfig[] = [
     risk: 1,
     isTokenOnly: true,
     lpSymbol: 'USDC',
-    decimal: 18,
     lpAddresses: {
       137: '0x2cf7252e74036d1da831d11089d326296e64a728'
     },
@@ -254,7 +242,6 @@ const farms: FarmConfig[] = [
     isTokenOnly: true,
     isCommunity: true,
     lpSymbol: 'PolyDoge',
-    decimal: 18,
     lpAddresses: {
       137: '0x7b3E67E63906d8576466c2f48158A30be0a9e36c'
     },

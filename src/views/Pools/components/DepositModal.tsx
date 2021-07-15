@@ -8,18 +8,17 @@ import { getFullDisplayBalance } from '../../../utils/formatBalance'
 
 interface DepositModalProps {
   max: BigNumber
-  onConfirm: (amount: string, decimal: number) => void
+  onConfirm: (amount: string) => void
   onDismiss?: () => void
   tokenName?: string
-  decimal?: number
 }
 
-const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '', decimal}) => {
+const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '' }) => {
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
   const TranslateString = useI18n()
   const fullBalance = useMemo(() => {
-    return getFullDisplayBalance(max)
+    return getFullDisplayBalance(max,6)
   }, [max])
 
   const handleChange = useCallback(
@@ -51,7 +50,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
           disabled={pendingTx}
           onClick={async () => {
             setPendingTx(true)
-            await onConfirm(val, decimal)
+            await onConfirm(val)
             setPendingTx(false)
             onDismiss()
           }}

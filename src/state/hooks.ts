@@ -92,14 +92,15 @@ export const useTotalValue = (): BigNumber => {
       let val;
       if (farm.quoteTokenSymbol === QuoteToken.WMATIC) {
         val = (bnbPrice.times(farm.lpTotalInQuoteToken));
-      }
-      if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+      }else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
         val = (cakePrice.times(farm.lpTotalInQuoteToken));
+       
       }else{
-        val = (farm.lpTotalInQuoteToken);
+        val = (farm.lpTotalInQuoteToken); // USDC etc
       }
       value = value.plus(val);
     }
   }
-  return value;
+  const output = value.toString() === Infinity.toString() ? new BigNumber(0): value;
+  return output;
 }

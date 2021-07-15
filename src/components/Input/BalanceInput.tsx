@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Button } from 'platinumfinancev2'
 import useI18n from 'hooks/useI18n'
 import Input, { InputProps } from './Input'
+import {BigNumber} from "bignumber.js"
 
 interface Props extends InputProps {
   max: number | string
@@ -36,7 +37,13 @@ const StyledTokenSymbol = styled.span`
 
 const BalanceInput: React.FC<Props> = ({ max, symbol, onChange, onSelectMax, value }) => {
   const TranslateString = useI18n()
-
+  let useMax = max;
+  if(symbol==='USDT'||symbol==='USDC'){
+    useMax=  new BigNumber(max).multipliedBy("1000000000000").toString();
+  } 
+  else if(symbol==='WBTC'){
+    useMax=  new BigNumber(max).multipliedBy("10000000000").toString();
+  } 
   return (
     <div>
       <Input
@@ -45,7 +52,7 @@ const BalanceInput: React.FC<Props> = ({ max, symbol, onChange, onSelectMax, val
             <StyledTokenSymbol>{symbol}</StyledTokenSymbol>
             <StyledSpacer />
             <div>
-              <Button scale="sm" onClick={onSelectMax}>
+              <Button size="sm" onClick={onSelectMax}>
                 {TranslateString(452, 'Max')}
               </Button>
             </div>
@@ -55,7 +62,7 @@ const BalanceInput: React.FC<Props> = ({ max, symbol, onChange, onSelectMax, val
         placeholder="0"
         value={value}
       />
-      <StyledMaxText>{TranslateString(454, `${max.toLocaleString()} ${symbol} Available`)}</StyledMaxText>
+      <StyledMaxText>{TranslateString(454, `${useMax.toLocaleString()} ${symbol} Available`)}</StyledMaxText>
     </div>
   )
 }

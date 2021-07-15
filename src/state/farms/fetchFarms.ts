@@ -60,6 +60,7 @@ const fetchFarms = async () => {
 
       let tokenAmount;
       let lpTotalInQuoteToken;
+      let lpStakedTotal;
       let tokenPriceVsQuote;
       if(farmConfig.isTokenOnly){
         tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals));
@@ -67,9 +68,10 @@ const fetchFarms = async () => {
         if(farmConfig.tokenSymbol === QuoteToken.USDC && farmConfig.quoteTokenSymbol === QuoteToken.USDC){
           tokenPriceVsQuote = new BigNumber(1);
         }else{
-          tokenPriceVsQuote = new BigNumber(quoteTokenBalanceLP).div(new BigNumber(tokenBalanceLP));
+          tokenPriceVsQuote = new BigNumber(quoteTokenBalanceLP).div(new BigNumber(10).pow(quoteTokenDecimals)).div(new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)));
         }
         lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
+        lpStakedTotal = tokenAmount;
       }
       else {
         // Ratio in % a LP tokens that are in staking, vs the total number in circulation
@@ -77,7 +79,7 @@ const fetchFarms = async () => {
 
         // Total value in staking in quote token value
         lpTotalInQuoteToken = new BigNumber(quoteTokenBalanceLP)
-          .div(new BigNumber(10).pow(18))
+          .div(new BigNumber(10).pow(quoteTokenDecimals))
           .times(new BigNumber(2))
           .times(lpTokenRatio)
 
@@ -89,9 +91,8 @@ const fetchFarms = async () => {
 
         if(tokenAmount.comparedTo(0) > 0){
           tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
-        }else{
-          tokenPriceVsQuote = new BigNumber(quoteTokenBalanceLP).div(new BigNumber(tokenBalanceLP)).times(new BigNumber(10).pow(tokenDecimals - quoteTokenDecimals));
         }
+        lpStakedTotal = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(quoteTokenDecimals))        
       }
 
 
@@ -118,12 +119,15 @@ const fetchFarms = async () => {
         ...farmConfig,
         tokenAmount: tokenAmount.toJSON(),
         // quoteTokenAmount: quoteTokenAmount,
-        lpTotalInQuoteToken: lpTotalInQuoteToken.times(new BigNumber(10).pow(tokenDecimals - quoteTokenDecimals)).toJSON(),
+        lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
         tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
         poolWeight: poolWeight.toNumber(),
         multiplier: `${allocPoint.div(100).toString()}X`,
         depositFeeBP: info.depositFeeBP,
         platinPerBlock: new BigNumber(platinPerBlock).toNumber(),
+        lpStakedTotal: lpStakedTotal.toJSON(),
+        tokenDecimals: new BigNumber(tokenDecimals).toNumber(),
+        quoteTokenDecimals: new BigNumber(quoteTokenDecimals).toNumber(),
       }
     }),
   )

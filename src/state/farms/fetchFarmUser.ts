@@ -30,25 +30,12 @@ export const fetchFarmUserTokenBalances = async (account: string) => {
       name: 'balanceOf',
       params: [account],
     }
-  });
+  })
 
-  // const decimalsCalls = farmsConfig.map((farm) => {
-  //   const lpContractAddress = farm.isTokenOnly ? farm.tokenAddresses[CHAIN_ID] : farm.lpAddresses[CHAIN_ID];
-  //   return {
-  //     address: lpContractAddress,
-  //     name: 'decimals'
-  //   }
-  // });
-
-  const rawTokenBalances = await multicall(erc20ABI, calls);
-  // const tokenDecimals = await multicall(erc20ABI, decimalsCalls);
-
-  // const zip = rows => rows[0].map((_, c) => rows.map(row => row[c]));
-
+  const rawTokenBalances = await multicall(erc20ABI, calls)
   const parsedTokenBalances = rawTokenBalances.map((tokenBalance) => {
     return new BigNumber(tokenBalance).toJSON()
-  });
-
+  })
   return parsedTokenBalances
 }
 
@@ -81,23 +68,9 @@ export const fetchFarmUserEarnings = async (account: string) => {
     }
   })
 
-  const decimalsCalls = farmsConfig.map((farm) => {
-    const lpContractAddress = farm.isTokenOnly ? farm.tokenAddresses[CHAIN_ID] : farm.lpAddresses[CHAIN_ID];
-    return {
-      address: lpContractAddress,
-      name: 'decimals'
-    }
-  });
-
   const rawEarnings = await multicall(masterchefABI, calls)
-
-  const tokenDecimals = await multicall(erc20ABI, decimalsCalls);
-
-  const zip = rows => rows[0].map((_, c) => rows.map(row => row[c]));
-
-  const parsedEarnings = zip([rawEarnings, tokenDecimals]).map(([earnings, decimals]) => {
-    // console.log(18 -decimals[0])
-    return new BigNumber(earnings).div(new BigNumber(10).pow(18 - decimals[0])).toJSON()
+  const parsedEarnings = rawEarnings.map((earnings) => {
+    return new BigNumber(earnings).toJSON()
   })
   return parsedEarnings
 }

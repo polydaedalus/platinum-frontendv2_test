@@ -15,6 +15,7 @@ export interface ExpandableSectionProps {
   quoteTokenSymbol?: string
   otherExchange?: string
   tokenAddresses: Address
+  pid: number
 }
 
 const Wrapper = styled.div`
@@ -45,6 +46,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   quoteTokenAdresses,
   quoteTokenSymbol,
   tokenAddresses,
+  pid,
   otherExchange
 }) => {
   const TranslateString = useI18n()

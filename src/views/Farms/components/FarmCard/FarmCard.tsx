@@ -111,29 +111,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
 
   const lpLabel = farm.lpSymbol
   const earnLabel = 'PLATIN'
-  let farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
+  const farmAPY = farm.apy && farm.apy.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
-  const formats = [
-    { value: 1e3, symbol: "K" } , 
-    { value: 1e6, symbol: "M" },
-    { value: 1e9, symbol: "B" },
-    { value: 1e12, symbol: "T" },
-  ];
-  let formatted = farmAPY;
-  formats.forEach(format => {
-    if(farm.apy.times(new BigNumber(100).toNumber()).gt(format.value)){
-      formatted = farm.apy && farm.apy.times(new BigNumber(100)).div(format.value).toNumber().toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })
-      const parts = formatted.match(/([\D]*)([\d.,]+)([\D]*)/)
-      formatted=`${parts[1]}${parts[2]} ${format.symbol}${parts[3]}`
-    }
-  });
 
-  farmAPY = formatted;
   const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, risk, lpSymbol } = farm
 
   return (

@@ -32,7 +32,7 @@ const config: MenuEntry[] = [
   },
   {
     label: 'Community Pools',
-    icon: 'CommunityIcon',
+    icon: 'GroupsIcon',
     href: '/community',
   },
   // {

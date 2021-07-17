@@ -4,7 +4,7 @@ const pools: PoolConfig[] = [
   {
     sousId: 1,
     tokenName: 'DAI',
-    stakingTokenName: QuoteToken.CAKE,
+    stakingTokenName: QuoteToken.PLATIN,
     stakingTokenAddress: '0x782eb3304F8b9adD877F13a5cA321f72c4AA9804',
     contractAddress: {
      137: '0x462C91e1E5a596Ef74bABF46F68061A1836f020d'
@@ -12,7 +12,7 @@ const pools: PoolConfig[] = [
     poolCategory: PoolCategory.COMMUNITY,
     projectLink: 'https://pancakeswap.finance/',
     harvest: true,
-    tokenPerBlock: '.0066',
+    tokenPerBlock: '0.0092',
     sortOrder: 1,
     isFinished: false,
     tokenDecimals: 18,

@@ -15,7 +15,6 @@ import { QuoteToken, PoolCategory } from 'config/constants/types'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 import Coming from './components/Coming'
-import CakeStats from './components/CakeStats'
 import PoolCard from './components/PoolCard'
 import PoolTabButtons from './components/PoolTabButtons'
 import Divider from './components/Divider'
@@ -69,20 +68,12 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
-      <Hero>
-        <div>
-          <Heading as="h1" size="xxl" mb="16px">
-            {TranslateString(282, 'Community Pools')}
-          </Heading>
-          <ul>
-            <li>Stake PLATIN to earn other tokens, decided by our community.</li>
-            <li>You may unstake at any time.</li>
-          </ul>
-        </div>
-      </Hero>
-      <CakeStats />
-      <br />
-
+        <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center' }}>
+            {TranslateString(10002, 'Stake PLATIN to earn other tokens, decided by our community.')}
+        </Heading>
+        <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
+        {TranslateString(557, 'Distribution begins at block ')}<a href="https://polygonscan.com/block/countdown/16956020" rel="noreferrer" target="_blank">block #16956020</a>
+        </Heading>
       <PoolTabButtons />
       <Divider />
       <FlexLayout>

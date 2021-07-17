@@ -80,7 +80,6 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
     isFinished,
     userData,
     stakingLimit,
-    depositFee,
   } = pool
   // Pools using native BNB behave differently than pools using a token
   const isBnbPool = poolCategory === PoolCategory.BINANCE
@@ -178,19 +177,14 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
           <OldSyrupTitle hasBalance={accountHasStakedBalance} />
         )}
         <Label isFinished={isFinished && sousId !== 0} text={`${tokenName} Earned`} />
-        <Flex justifyContent="space-between">
-        <Text style={{ fontSize: '24px' }}>{TranslateString(10001, 'Deposit Fee')}:</Text>
-        <Text bold style={{ fontSize: '24px' }}>
-          {pool.depositFee}%
-        </Text>
-      </Flex>
+        <Flex justifyContent="space-between" />
         <StyledCardActions>
           {!account && <UnlockButton />}
           {account &&
             (needsApproval && !isOldSyrup ? (
               <div style={{ flex: 1 }}>
                 <Button disabled={isFinished || requestedApproval} onClick={handleApprove}>
-                  {`Approve ${stakingTokenName}`}
+                  Approve
                 </Button>
               </div>
             ) : (
@@ -207,7 +201,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
                       : onPresentWithdraw
                   }
                 >
-                  {`Unstake ${stakingTokenName}`}
+                  Unstake tokens
                 </Button>
                 <StyledActionSpacer />
                 {!isOldSyrup && (
@@ -231,7 +225,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             <span role="img" aria-label={stakingTokenName}>
             <div style={{ flex: 1 }}>
               {TranslateString(384, 'Your Stake')}:
-              <Image src={`/images/tokens/${stakingTokenName}.png`} width={20} height={20} alt="PLATIN" />{' '}
+              <Image src="/images/tokens/platin.png" width={20} height={20} alt="PLATIN" />
               
             </div>
             
